@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+composer.json
+composer.lock
+docker-compose.yml
+
