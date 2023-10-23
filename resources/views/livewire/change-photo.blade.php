@@ -34,7 +34,8 @@
             
               <div class="absolute bg-white shadow-md border border-gray-200 
               rounded-xl w-full py-2" x-show="open">
-              <a href="#" class="block hover:bg-gray-50 p-2 w-full font-bold ">Change profile photo</a>
+              <a href="#" class="block hover:bg-gray-50 p-2 w-full font-bold " 
+              wire:click.prevent="openModalChangePhoto()">Change profile photo</a>
               <a href="#" class="block hover:bg-gray-50 p-2 font-bold">Logout</a>
               
               </div>
@@ -44,6 +45,25 @@
         
           </div>
           <!-- fim usuario  -->
+
+
+          <x-dialog-modal wire:model="showModal">
+            <x-slot name="title">Edit Profile</x-slot>
+            <x-slot name="content">
+              <div class="shrink-0 mb-4">
+                <img alt="usuario" 
+                src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" 
+                class="rounded-full  " width="130">
+              </div>
+              <form action="">
+                <input type="file" name="" id="">
+              </form>
+              
+            </x-slot>
+            <x-slot name="footer">
+              <button>Save</button>
+            </x-slot>
+          </x-dialog-modal>
      
 
           
