@@ -4,7 +4,8 @@
             <button @click="open=!open"
                 class=" flex rounded-full hover:bg-gray-200 px-3 py-2">
                 @if ( $path = auth()->user()->profile_photo_path)
-                    <img src="{{ url("storage/users/41701826.png") }}" alt="user">
+                    <img src="{{ url("/users/57741591.png") }}" alt="pp">
+                    
                     
                 @else
                     <img alt="usuario" src="{{url('images/profile_normal.png')}}" class="rounded-full w-8 h-8">
@@ -62,6 +63,12 @@
                 class="rounded-full  " width="130">
               </div>
               <form action="" method="post" wire:submit.prevent='storagePhoto()'>
+
+                @if ($photo)
+                  Photo Preview:
+                  <img src="{{ $photo->temporaryUrl() }}" class="mb-4">
+                @endif
+
                 <input type="file" name="photo" id="photo" wire:model='photo'>
 
                 <div class="text-red-500">
