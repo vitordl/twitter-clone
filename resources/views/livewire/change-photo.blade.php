@@ -3,8 +3,14 @@
          <div class="mt-5 relative" x-data="{open: false}">
             <button @click="open=!open"
                 class=" flex rounded-full hover:bg-gray-200 px-3 py-2">
-                <img alt="usuario" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" class="rounded-full w-8 h-8">
-              
+                @if ( $path = auth()->user()->profile_photo_path)
+                    <img src="{{ url("storage/users/41701826.png") }}" alt="user">
+                    
+                @else
+                    <img alt="usuario" src="{{url('images/profile_normal.png')}}" class="rounded-full w-8 h-8">
+                @endif
+                
+                
               <div class="px-4">
                 
               <div class="flex w-36">
@@ -55,18 +61,30 @@
                 src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" 
                 class="rounded-full  " width="130">
               </div>
-              <form action="">
-                <input type="file" name="" id="">
-              </form>
-              
+              <form action="" method="post" wire:submit.prevent='storagePhoto()'>
+                <input type="file" name="photo" id="photo" wire:model='photo'>
+
+                <div class="text-red-500">
+                   @error('photo')
+                {{$message}}
+                @enderror
+                </div>
+               
             </x-slot>
             <x-slot name="footer">
-              <button>Save</button>
+              <button class="font-bold" type="submit">Save</button>
             </x-slot>
+
+           
+          </form>
+
+          
           </x-dialog-modal>
      
 
           
 </div>
 
+
+{{-- img link https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png  --}}
 
