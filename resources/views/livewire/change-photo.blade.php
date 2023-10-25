@@ -4,11 +4,10 @@
             <button @click="open=!open"
                 class=" flex rounded-full hover:bg-gray-200 px-3 py-2">
                 @if ( $path = auth()->user()->profile_photo_path)
-                    <img src="{{ url("/users/57741591.png") }}" alt="pp">
-                    
+                    <img src="{{ url("{$path}") }}" alt="pic" width="45" class="rounded-full shrink-0">
                     
                 @else
-                    <img alt="usuario" src="{{url('images/profile_normal.png')}}" class="rounded-full w-8 h-8">
+                    <img alt="usuario" src="{{url('images/profile_normal.png')}}"  class="rounded-full w-8 h-8">
                 @endif
                 
                 
@@ -53,14 +52,17 @@
           </div>
           <!-- fim usuario  -->
 
-
+          {{-- src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" --}}
           <x-dialog-modal wire:model="showModal">
             <x-slot name="title">Edit Profile</x-slot>
             <x-slot name="content">
-              <div class="shrink-0 mb-4">
-                <img alt="usuario" 
-                src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" 
-                class="rounded-full  " width="130">
+              <div class="shrink-0 mb-4 w-full">
+                @if ( $path = auth()->user()->profile_photo_path)
+                    <img src="{{ url("{$path}") }}" alt="pic" class="rounded-full w-60 h-60">
+                @else
+                    <img alt="usuario" src="{{url('images/profile_normal.png')}}" class="rounded-full">
+                @endif
+                
               </div>
               <form action="" method="post" wire:submit.prevent='storagePhoto()'>
 

@@ -16,7 +16,14 @@
 
             
             <div class="hidden md:block">
-                <img alt="usuario" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" class="rounded-full" width="40">
+                @if ( $path = auth()->user()->profile_photo_path)
+                  <img src="{{ url("{$path}") }}" alt="pic"  class="rounded-full w-10 h-10">
+          
+                @else
+                  <img alt="usuario" src="{{url('images/profile_normal.png')}}"  class="rounded-full w-8 h-8">
+                @endif
+
+                {{-- <img alt="usuario" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" class="rounded-full" width="40"> --}}
             </div>
 
             
@@ -72,8 +79,14 @@
               <div class="px-2  mt-8 text-sm sm:text-base">
                   <div class="flex gap-x-2">
                       <div class="shrink-0">
-                        <img alt="usuario" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" class="rounded-full  " width="40">
-                      </div>
+                      @if ( $path = auth()->user()->profile_photo_path)
+                        <img src="{{ url("{$path}") }}" alt="pic"  class="rounded-full w-10 h-10">
+                    
+                      @else
+                        <img alt="usuario" src="{{url('images/profile_normal.png')}}"  class="rounded-full w-8 h-8">
+                      @endif
+{{--                    <img alt="usuario" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" class="rounded-full  " width="40">
+ --}}                 </div>
                       
                       <div>
                         <div class="flex gap-x-4">

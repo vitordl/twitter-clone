@@ -29,7 +29,10 @@ class ChangePhoto extends Component
 
         $nameFile = rand(10000,99999999).'.png';
 
-        $saved = $this->photo->storeAs('users', $nameFile);
+        $saved = $this->photo->storeAs('public/photos', $nameFile);
+        $saved = str_replace('public', 'storage', $saved);
+        /* $path = $this->photo->storeAs('public/images', $nameFile); 
+        $path = str_replace('public', 'storage', $path); */
 
         if($saved){
             auth()->user()->update([
