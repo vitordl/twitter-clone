@@ -9,6 +9,8 @@ class ShowTweetsTwo extends Component
 {
 
     public $content;
+    public $tweet_like;
+
     public function render()
     {
         $tweets = Tweet::latest()->get();
@@ -33,6 +35,11 @@ class ShowTweetsTwo extends Component
         $this->content = '';
        
         
+    }
+
+    public function like(){
+        $this->tweet_like++;
+        dd($this->tweet_like);
     }
 
     
