@@ -22,6 +22,7 @@ class ChangePhoto extends Component
         $this->showModal = true;
     }
 
+    
     public function storagePhoto(){
 
        
@@ -44,6 +45,8 @@ class ChangePhoto extends Component
             auth()->user()->update([
                 'profile_photo_path' => $saved
             ]);
+
+            
         }
         
         return redirect()->route('dashboard');
