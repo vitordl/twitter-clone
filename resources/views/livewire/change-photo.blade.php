@@ -42,7 +42,8 @@
               rounded-xl w-full py-2" x-show="open">
               <a href="#" class="block hover:bg-gray-50 p-2 w-full font-bold " 
               wire:click.prevent="openModalChangePhoto()">Change profile photo</a>
-              <a href="#" class="block hover:bg-gray-50 p-2 font-bold">Logout</a>
+              <a href="#" class="block hover:bg-gray-50 p-2 font-bold"
+              wire:click.prevent="logout()">Logout</a>
               
               </div>
             

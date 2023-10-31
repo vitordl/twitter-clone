@@ -27,7 +27,7 @@
                 <form method="post" wire:submit.prevent='create'>
 
                   
-                   <input type="text" wire:model.lazy='content' placeholder="type.."
+                   <input type="text" wire:model.lazy="content" placeholder="type.."
                    class="py-4 border border-transparent  w-full focus:outline-dashed text-lg text-gray-600"
                    style="outline: none;">
             
@@ -74,7 +74,11 @@
               <div class="px-2  mt-8 text-sm sm:text-base">
                   <div class="flex gap-x-2">
                       <div class="shrink-0">
-                        <x-assets.profile-photo />
+                        @if($tweet->user->profile_photo_path)
+                          <img src="{{ $tweet->user->profile_photo_path }}" alt="pic"  class="rounded-full w-10 h-10">
+                        @else
+                          <img alt="usuario" src="{{url('images/profile_normal.png')}}"  class="rounded-full w-10 h-10">
+                        @endif
                       </div>
                       
                       <div>
@@ -115,7 +119,7 @@
                 </a>
                 @endforeach
 
-                {{-- ISSO AQUI É OURO  --}}
+                {{-- modelo que funciona  --}}
                 {{-- <a href="#" class="hover:bg-gray-100 flex ">
 
                   <div class="px-2  mt-8 text-sm sm:text-base">
