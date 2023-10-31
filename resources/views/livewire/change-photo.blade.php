@@ -54,7 +54,8 @@
           <!-- fim usuario  -->
 
           {{-- src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" --}}
-          <x-dialog-modal wire:model.lazy="showModal">
+          
+          <x-dialog-modal wire:model="showModal">
             <x-slot name="title">Edit Profile</x-slot>
             <x-slot name="content">
               <div class="shrink-0 mb-4 w-full">
