@@ -9,7 +9,7 @@ class ShowTweetsTwo extends Component
 {
 
     public $content;
-    public $tweet_like;
+    public $tweet_like=0;
 
     public function render()
     {
@@ -24,22 +24,16 @@ class ShowTweetsTwo extends Component
         ]);
 
         $this->content = str_replace("\n", " ", $this->content);
-        // dd($this->content);
-
         
-
         auth()->user()->tweets()->create([
             'content' => $this->content
         ]);
 
-        $this->content = '';
-       
-        
+        $this->content = '';       
     }
 
     public function like(){
         $this->tweet_like++;
-        dd($this->tweet_like);
     }
 
     
