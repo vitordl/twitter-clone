@@ -55,7 +55,7 @@
 
           {{-- src="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" --}}
           
-          <x-dialog-modal wire:model="showModal">
+         {{--  <x-dialog-modal wire:model="showModal">
             <x-slot name="title">Edit Profile</x-slot>
             <x-slot name="content">
               <div class="shrink-0 mb-4 w-full">
@@ -78,8 +78,8 @@
 
                 <div class="text-red-500">
                    @error('photo')
-                {{$message}}
-                @enderror
+                    {{$message}}
+                   @enderror
                 </div>
                
             </x-slot>
@@ -91,6 +91,43 @@
           </form>
 
           
+          </x-dialog-modal> --}}
+
+          <x-dialog-modal wire:model="showModal"> 
+            <x-slot name="title">Edit Profile</x-slot>
+            <x-slot name="content">
+              <div class="shrink-0 mb-4 w-full">
+                @if ( $path = auth()->user()->profile_photo_path)
+                    <img src="{{ url("{$path}") }}" alt="pic" class="rounded-full w-60 h-60">
+                @else
+                    <img alt="usuario" src="{{url('images/profile_normal.png')}}" class="rounded-full">
+                @endif
+                
+              </div>
+
+
+              <form method="post" wire:submit.prevent="storagePhoto()">
+                @if ($photo)
+                  Photo Preview:
+                  <img src="{{ $photo->temporaryUrl() }}" class="mb-4">
+                @endif
+
+                <input type="file" name="photo" id="photo" wire:model='photo'>
+
+                <div class="text-red-500">
+                   @error('photo')
+                    {{$message}}
+                   @enderror
+                </div>
+
+                <div class="text-end">
+                  <button class="font-bold text-lg" type="submit">Save</button>
+                </div>
+                
+
+              </form>
+            </x-slot>
+            <x-slot name="footer"></x-slot>
           </x-dialog-modal>
      
 

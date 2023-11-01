@@ -20,7 +20,7 @@ class ShowTweetsTwo extends Component
     public function create(){
 
         $this->validate([
-            'content' => 'required|min:5'
+            'content' => 'required|min:2'
         ]);
 
         $this->content = str_replace("\n", " ", $this->content);
