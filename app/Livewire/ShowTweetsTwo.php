@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Like;
 use App\Models\Tweet;
 use Livewire\Component;
 
@@ -32,8 +33,14 @@ class ShowTweetsTwo extends Component
         $this->content = '';       
     }
 
-    public function like(){
-        $this->tweet_like++;
+    public function like($id){ //id do tweet selecionado
+        //dd($id);
+        
+        $tweet = Tweet::findOrFail($id); //encontra o tweet pelo id
+        // $likes = Like::all();
+        $tweet->likes_qtd++;     //aumenta 1 like naquele especifico tweet
+        $tweet->save();
+
     }
 
     

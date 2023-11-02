@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('content');
             $table->unsignedBigInteger('user_id');
+            $table->integer('likes_qtd')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 
