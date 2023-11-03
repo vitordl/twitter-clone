@@ -14,7 +14,7 @@
 <p>APP_PORT=8083 </p>
 <p>APP_URL=http://localhost:${APP_PORT}</p>
  
-<br><br>
+<br>
 <p>(turning on sail)</p>
 <p>./vendor/bin/sail up -d</p>
 <p>./vendor/bin/sail artisan key:generate</p>
