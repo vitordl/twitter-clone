@@ -21,6 +21,7 @@
 <p>./vendor/bin/sail npm install</p>
 <p>./vendor/bin/sail npm run build</p>
 <p>./vendor/bin/sail artisan migrate</p>
+<p>./vendor/bin/sail artisan storage:link</p>
 <p><strong>done!</strong></p>
 
 
