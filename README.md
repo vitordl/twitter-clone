@@ -1,4 +1,28 @@
 <img src="public/images/twitterr.png" alt="twitter-clone">
+<br>
+<p><strong>Steps to use this project with laravel sail</strong><p>
+
+<p>git clone https://github.com/vitordl/twitter-clone --branch work_on_it</p>
+<p>cd twitter-clone</p>
+<p>composer require laravel/sail --dev</p>
+<p>cp .env.exaple .env</p>
+<p>php artisan sail:install</p>
+<br>
+<p>(if your port 80 is already being used, need to add .env these lines)(8083, for example)</p>
+<p>APP_PORT=8083 </p>
+<p>APP_URL=http://localhost:${APP_PORT}</p>
+ 
+<br>
+<p>choose mysql and redis and install (it will take a few minutes)</p>
+<br><br>
+<p>(turning on sail)</p>
+<p>./vendor/bin/sail up -d</p>
+<p>./vendor/bin/sail artisan key:generate</p>
+<p>./vendor/bin/sail npm install</p>
+<p>./vendor/bin/sail npm run build</p>
+<p>./vendor/bin/sail artisan migrate</p>
+<p>./vendor/bin/sail artisan storage:link</p>
+<p><strong>done!</strong></p>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
