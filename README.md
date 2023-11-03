@@ -9,7 +9,7 @@
 <p>php artisan sail:install</p>
 <br>
 <p>choose mysql and redis and install (it will take a few minutes)</p>
-
+<br>
 <p>(turning on sail)</p>
 <p>./vendor/bin/sail up -d</p>
 <br>
