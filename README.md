@@ -10,12 +10,13 @@
 <br>
 <p>choose mysql and redis and install (it will take a few minutes)</p>
 
+<p>(turning on sail)</p>
+<p>./vendor/bin/sail up -d</p>
+<br>
 <p>(if your port 80 is already being used, need to add .env these lines)(8083, for example)</p>
 <p>APP_PORT=8083 </p>
 <p>APP_URL=http://localhost:${APP_PORT}</p>
 <br><br>
-<p>(turning on sail)</p>
-<p>./vendor/bin/sail up -d</p>
 <p>./vendor/bin/sail artisan key:generate</p>
 <p>./vendor/bin/sail npm install</p>
 <p>./vendor/bin/sail npm run build</p>
