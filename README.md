@@ -8,7 +8,7 @@
 <p>cp .env.exaple .env</p>
 <p>php artisan sail:install</p>
 <br>
-<p>(need to add .env these lines)(8083, for example)</p>
+<p>(if your port 80 is already being used, need to add .env these lines)(8083, for example)</p>
 <p>APP_PORT=8083 </p>
 <p>APP_URL=http://localhost:${APP_PORT}</p>
  
