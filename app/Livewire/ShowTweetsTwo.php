@@ -37,9 +37,9 @@ class ShowTweetsTwo extends Component
         //dd($id);
         $likes = Like::where('user_id', $auth_id)->where('tweet_id', $id)->first();
         
-        
+                
         if(!$likes){
-           
+
             auth()->user()->likes()->create([
                 'user_id' => $auth_id,
                 'tweet_id' => $id
@@ -48,9 +48,20 @@ class ShowTweetsTwo extends Component
             $tweet->likes_qtd++;     //aumenta 1 like naquele especifico tweet
             $tweet->save();
         
-        }    
+        /* } else{
+
+            $tweet = Tweet::findOrFail($id); //encontra o tweet pelo id
+            if(!$tweet->likes_qtd == 0 ){
+                dd('ok');
+            }else{
+                $tweet->likes_qtd--;     
+                $tweet->save(); 
+            }
+            
+        } */
     }
 
+}
 
 
 }
