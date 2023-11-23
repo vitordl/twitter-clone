@@ -36,32 +36,23 @@ class ShowTweetsTwo extends Component
     public function like($id, $auth_id){ //id do tweet selecionado
         //dd($id);
         $likes = Like::where('user_id', $auth_id)->where('tweet_id', $id)->first();
-        
-                
+        //dd = dump and die, thats why   
+
         if(!$likes){
+            //Se nao tiver likes respectivo ao id autenticado e o id do tweet, faça
 
             auth()->user()->likes()->create([
                 'user_id' => $auth_id,
                 'tweet_id' => $id
-            ]);
-            $tweet = Tweet::findOrFail($id); //encontra o tweet pelo id
-            $tweet->likes_qtd++;     //aumenta 1 like naquele especifico tweet
-            $tweet->save();
+            ]);           
         
-        /* } else{
-
-            $tweet = Tweet::findOrFail($id); //encontra o tweet pelo id
-            if(!$tweet->likes_qtd == 0 ){
-                dd('ok');
-            }else{
-                $tweet->likes_qtd--;     
-                $tweet->save(); 
-            }
-            
-        } */
+        }
     }
 
-}
+    public function unlike($id, $auth_id){
 
+        auth()->user()->likes()->where('user_id', $auth_id)->where('tweet_id', $id)->delete();
+
+    }
 
 }
