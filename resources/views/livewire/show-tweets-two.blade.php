@@ -103,7 +103,9 @@
                         nao
                         @endif --}}
 
-                        {{-- @if($tweet->likes) --}}
+                        {{-- @if($tweet->likes) 
+                          se o usuario logado ja deu like nesse twitch, então mostre o icone ja curtido. se nao...
+                          --}}
                         
                         <a href="#" 
                         wire:click.prevent="like({{$tweet->id}}, {{auth()->user()->id}})"
