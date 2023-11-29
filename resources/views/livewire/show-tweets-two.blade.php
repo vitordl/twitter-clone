@@ -57,10 +57,10 @@
           <div>
             @foreach ($tweets as $tweet)
         
-            <a href="#" class="hover:bg-gray-100 flex">
+            <a href="#" class="px-2 hover:bg-gray-100 flex">
 
         
-              <div class="px-2  mt-8 text-sm sm:text-base">
+              <div class=" mt-8 text-sm sm:text-base">
                 
                   <div class="flex gap-x-2">
                       <div class="shrink-0">
