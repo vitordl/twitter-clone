@@ -170,7 +170,7 @@
               </div>
               <div class="px-2 text-sm sm:text-base"> 
                
-                <span class="font-bold">Terra Brasil Noticiamos</span> <span class="text-gray-400">@terrabrasil - 3h</span>
+                <span class="font-bold">Terra Brasil Notícias</span> <span class="text-gray-400">@terrabrasil - 3h</span>
               
                 <div>
                   Câmara aprova cota para filmes brasileiros nos cinemas até 2033
