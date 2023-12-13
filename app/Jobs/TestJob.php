@@ -18,7 +18,7 @@ class TestJob implements ShouldQueue
      */
     public function __construct()
     {
-        //
+        //um teste apenas
     }
 
     /**
