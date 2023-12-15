@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\HelloWorldComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,6 @@ Route::middleware([
     Route::get('teste', function(){
         echo "teste";
     })->name('teste');
+
+    // Route::get('hello-world', HelloWorldComponent::class)->name('hello-world');
 });

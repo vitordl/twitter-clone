@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Events\CurtiuEvent;
+use App\Events\LikeEvent;
 use App\Models\Like;
 use App\Models\Tweet;
 use Livewire\Component;
@@ -11,6 +13,8 @@ class ShowTweetsTwo extends Component
 
     public $content;
     public $tweet_like=0;
+
+    protected $listeners = ['echo:curtida,CurtiuEvent' => 'curtiu'];
 
     public function render()
     {
@@ -30,7 +34,9 @@ class ShowTweetsTwo extends Component
             'content' => $this->content
         ]);
 
-        $this->content = '';       
+        $this->content = '';   
+        
+        CurtiuEvent::dispatch();
     }
 
     public function like($id, $auth_id){ //id do tweet selecionado
@@ -44,15 +50,23 @@ class ShowTweetsTwo extends Component
             auth()->user()->likes()->create([
                 'user_id' => $auth_id,
                 'tweet_id' => $id
-            ]);           
+            ]);  
+                       
         
         }
+
+        CurtiuEvent::dispatch();
     }
 
     public function unlike($id, $auth_id){
 
         auth()->user()->likes()->where('user_id', $auth_id)->where('tweet_id', $id)->delete();
+        CurtiuEvent::dispatch();
+    }
 
+
+    public function curtiu(){
+        $this->render();
     }
 
 }
