@@ -121,10 +121,7 @@
       
               <livewire:change-photo />
 
-              <livewire:hello-world-component/>
-
-              <livewire:listen-websocket/>
-                
+           
     </div>
         <!-- FIM DA GRID 1  MENU -->
       

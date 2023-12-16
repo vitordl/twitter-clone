@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class CurtiuEvent implements ShouldBroadcast
+class PageActionEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -30,7 +30,7 @@ class CurtiuEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('curtida'),
+            new Channel('action-channel'),
         ];
     }
 }
